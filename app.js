@@ -12,6 +12,12 @@ loadEventListeners();
   function loadEventListeners() {
     // Add task event
     form.addEventListener('submit', addTask);
+    // Remove individual tasks event
+    taskList.addEventListener('click', removeTask);
+    // Clear all tasks event
+    clearBtn.addEventListener('click', clearTasks);
+    // Filter tasks event
+    filter.addEventListener('keyup', filterTasks);
   }
 
 // addTask function
@@ -43,3 +49,40 @@ loadEventListeners();
 
     e.preventDefault();
   }
+
+// removeTask function
+  function removeTask(e) {
+    // Check if deleteLink icon is clicked
+    if(e.target.parentElement.classList.contains('delete-item')) {
+      // confirm the user wants to delete the task
+      if(confirm('Are you sure?')) {
+        // remove the entire li element, which is the grandparenbt element
+        e.target.parentElement.parentElement.remove();
+      }
+    }
+  }
+  
+// Clear all tasks
+  function clearTasks() {
+    // while there are still items in the list ...
+    while(taskList.firstChild) {
+      // remove first item in list
+      taskList.removeChild(taskList.firstChild);
+    }
+  }
+
+// Filter tasks
+function filterTasks(e) {
+  const text = e.target.value.toLowerCase();
+  // 
+  document.querySelectorAll('.collection-item').forEach
+  (function(task) {
+    const item = task.firstChild.textContent;
+    if(item.toLowerCase().indexOf(text) != -1) {
+      task.style.display = 'block';
+    } else {
+      task.style.display = 'none';
+    }
+  }); 
+}
+
