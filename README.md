@@ -1,6 +1,6 @@
 # Task-lister
 
-This is a simple task list application made using Javascript and Materialize CSS. This is a practice assignment I used for practice in DOM manipulation and local storage. Also a very basic introduction to Materialize. 
+This is a simple task list application made using Javascript and Materialize CSS. This is a practice assignment I used for practice in DOM manipulation and local storage. Also a very basic introduction to Materialize, as well as Git branching and project development.
 
 ## Deployment
 
