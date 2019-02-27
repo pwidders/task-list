@@ -5,8 +5,10 @@ const clearBtn = document.querySelector('.clear-tasks');
 const filter = document.querySelector('#filter');
 const taskInput = document.querySelector('#task');
 
+
 // Load all event listeners
 loadEventListeners();
+
 
 // Load all event listeners function
   function loadEventListeners() {
@@ -21,6 +23,7 @@ loadEventListeners();
     // Filter tasks event
     filter.addEventListener('keyup', filterTasks);
   }
+
 
 // Get tasks from local storage
   function getTasks() {
@@ -53,6 +56,7 @@ loadEventListeners();
       taskList.appendChild(li);     
     })
   }
+
 
 // addTask function
   function addTask(e) {
@@ -102,6 +106,7 @@ loadEventListeners();
         localStorage.setItem('tasks', JSON.stringify(tasks));
       }
 
+
 // removeTask function
   function removeTask(e) {
     // Check if deleteLink icon is clicked
@@ -136,6 +141,7 @@ loadEventListeners();
         localStorage.setItem('tasks', JSON.stringify(tasks));
       }
   
+
 // Clear all tasks
   function clearTasks() {
     // while there are still items in the list ...
@@ -156,14 +162,15 @@ loadEventListeners();
       }
     }
 
-// Filter tasks
+
+// FilterTasks
 function filterTasks(e) {
   const text = e.target.value.toLowerCase();
   // 
   document.querySelectorAll('.collection-item').forEach
   (function(task) {
     const item = task.firstChild.textContent;
-    if(item.indexOf(text) != -1) {
+    if(item.toLowerCase().indexOf(text) != -1) {
       task.style.display = 'block';
     } else {
       task.style.display = 'none';
